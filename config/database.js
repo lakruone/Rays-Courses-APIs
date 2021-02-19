@@ -5,7 +5,7 @@ var pool      =    mysql.createPool({
     host     : 'localhost',
     user     : 'root',
     password : '',
-    database : 'pharmacy_data',
+    database : 'rays_database',
     debug    :  false
 });
 

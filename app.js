@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const app = express();
 
-const User = require('./routes/User');
+const Student = require('./routes/Student');
+const Admin = require('./routes/Admin');
 
-
+//cross origin resource sharing
+app.use(cors())
 
 //Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false}))
@@ -14,7 +16,9 @@ app.use(bodyParser.json())
 
 
 //routes
-app.use("/",User);
+app.use("/",Student);
+app.use("/admin",Admin);
+
 
 
 
