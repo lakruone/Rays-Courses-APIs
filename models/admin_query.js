@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 module.exports.checkLoginCredentials =(admin,password, callback) =>{
   const qry = "select * from admin where admin=?";
 
-  pool.query(qry,[admin], (err,result) => {
+  pool.query(qry, [admin], (err,result) => {
     if (err){
       return callback(err,null);
     }
