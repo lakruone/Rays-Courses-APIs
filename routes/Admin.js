@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const Token = require('../config/token')
 
 const Admin = require('../models/admin_query');
 
@@ -33,8 +34,15 @@ router.post('/login', (req,res) => {
 
 });
 
-router.get('/courses', (req,res)=>{
-  console.log(req.headers.authorization);
+router.get('/courses',Token.verifyToken, (req,res)=>{
+    Admin.getAllCourses((err,result) => {
+      if(err){
+        console.log(err);
+      }else{
+        console.log(result);
+        return res.status(200).json({result});
+      }
+    })
 });
 
 

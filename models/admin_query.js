@@ -26,3 +26,19 @@ module.exports.checkLoginCredentials =(admin,password, callback) =>{
         }
       });
 }
+
+//getAllCourses
+module.exports.getAllCourses = (callback)=>{
+  const qry = 'SELECT * FROM course,university WHERE course.uni_id =university.university_id';
+
+  pool.query(qry, (err,result) => {
+    if(err){
+      return callback(err,null);
+    }
+    if(result[0]==null){
+      return callback(null,false);
+    }else {
+      return callback(null,result);
+    }
+  });
+}
