@@ -39,10 +39,35 @@ router.get('/courses',Token.verifyToken, (req,res)=>{
       if(err){
         console.log(err);
       }else{
-        console.log(result);
         return res.status(200).json({result});
       }
     })
+});
+
+router.post('/add-new-course',Token.verifyToken, (req,res)=>{
+
+  const courseName = req.body.courseName;
+  const courseDescription = req.body.courseDescription;
+  const universityName = req.body.universityName;
+  const country = req.body.country;
+
+  Admin.SaveCourse(courseName,courseDescription,universityName,country, (err,result) => {
+    if(err){
+      console.log(err);
+    }else{
+      return res.status(200).json({'msg':'success'});
+    }
+  });
+    // Admin.getAllCourses((err,result) => {
+    //   if(err){
+    //     console.log(err);
+    //   }else{
+    //     console.log(result);
+    //     return res.status(200).json({result});
+    //   }
+    // })
+
+
 });
 
 
