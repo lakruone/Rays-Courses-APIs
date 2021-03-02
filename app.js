@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 
 
 //routes
-app.use("/", Student);
+app.use("/student", Student);
 app.use("/admin", Admin);
 
 const port = process.env.PORT || 5600;

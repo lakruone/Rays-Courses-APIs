@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const Token = require('../config/token')
 
-const Admin = require('../models/admin_query');
+const Admin = require('../models/admin');
 
 //localhost:5600/admin/login
 router.post('/login', (req,res) => {
@@ -58,16 +58,19 @@ router.post('/add-new-course',Token.verifyToken, (req,res)=>{
       return res.status(200).json({'msg':'success'});
     }
   });
-    // Admin.getAllCourses((err,result) => {
-    //   if(err){
-    //     console.log(err);
-    //   }else{
-    //     console.log(result);
-    //     return res.status(200).json({result});
-    //   }
-    // })
+});
 
-
+router.delete('/delete-course/:id', Token.verifyToken, (req,res) => {
+  // console.log(req.params.id+ 'course id');
+  // console.log(req.body);
+  const course_id = req.params.id;
+  Admin.DeleteCourseById(course_id, (err, result) => {
+    if(err){
+      console.log(err);
+    }else {
+      return res.status(200).json({'msg':'success'});
+    }
+  })
 });
 
 

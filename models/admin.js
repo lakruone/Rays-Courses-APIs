@@ -70,3 +70,17 @@ module.exports.SaveCourse = (courseName,courseDescription,universityName,country
     }
   })
 }
+
+
+//DeleteCourseById
+module.exports.DeleteCourseById = (course_id, callback) => {
+  const qry = 'UPDATE course SET status="DISSABLE" WHERE course_id=?';
+
+  pool.query(qry, [course_id], (err,res) => {
+    if(err){
+      return callback(err,null);
+    }else{
+      return callback(null,true);
+    }
+  });
+}
