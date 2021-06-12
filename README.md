@@ -53,3 +53,6 @@ FOREIGN KEY (course_id) REFERENCES course(course_id) );
 The app will run on localhost 5600
 
 
+The front end of this application is built with React Js. The front end repositary is available in the following link
+https://github.com/lakruone/Rays-Courses---Frontend-ReactJS
+
