@@ -56,3 +56,5 @@ The app will run on localhost 5600
 The front end of this application is built with React Js. The front end repositary is available in the following link
 https://github.com/lakruone/Rays-Courses---Frontend-ReactJS
 
+There is another version of backend app, which is connected to postgresql database. So you can clone it from folling repository. 
+https://github.com/lakruone/Rays-Courses-APIs/tree/updated-to-postgres
